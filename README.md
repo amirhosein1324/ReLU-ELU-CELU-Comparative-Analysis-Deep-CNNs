@@ -45,6 +45,22 @@ We trained the same CNN architecture for 5 epochs for each function. Here is the
 | **ELU** |  Slowest |  **Best** |  Lower (68.2%) | Learns fast, but prone to overfitting without extra help. |
 | **CELU** |  Moderate | **Best** |  Lowest (67.9%) | Nearly identical to ELU; very stable but overfits easily. |
 
+
+
+## Comprehensive Activation Function Comparing Sheet
+
+
+| Feature | ReLU (Rectified Linear Unit) | ELU (Exponential Linear Unit) | CELU (Continuously Differentiable ELU) |
+| :--- | :--- | :--- | :--- |
+| **Dying Neuron Problem** | **High Risk** (Zero output for $x \le 0$) | **Avoided** (Negative outputs maintain activity) | **Avoided** (Negative outputs maintain activity) |
+| **Computational Speed** | **Fastest** (Simple 'if/then' logic) | **Slowest** (Requires exponential calculation) | **Slow** (Requires exponential calculation) |
+| **Training Convergence** | Steady / **Slower** | **Fastest** (Aggressive loss reduction) | **Fastest** (Identical to ELU) |
+| **Training Accuracy** | **Lowest** (83.38%) | **Highest** (89.03%) | **Highest** (89.08%) |
+| **Test Accuracy (Generalization)** | **Best** (69.71%) | Lower (68.21%) | Lowest (67.93%) |
+| **Overfitting Resistance** | **High** (Stable test loss) | **Low** (Test loss increases post-Epoch 2) | **Low** (Test loss increases post-Epoch 2) |
+| **Key Advantage** | Stability and Speed | Faster, deeper learning | Smoother, more mathematically stable version of ELU |
+| **Ideal Use Case** | When speed is crucial or in models prone to generalization issues. | When the model is **under-fitting** and needs aggressive convergence. | Same as ELU, preferred by those prioritizing gradient stability. |
+
 ---
 
 ## Visual Analysis
